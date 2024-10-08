@@ -1,11 +1,11 @@
-# dependecies
+# Dependecies
 import csv
 import os
 
 
 
 # Path file
-csvpath= os.path.join("PyPoll", "Resources", "election_data_csv")
+csvpath= os.path.join("..", "Resources", "election_data.csv")
 
 
 # Store variables
@@ -17,7 +17,7 @@ doane_votes = 0
 
 
 # open and read csv file
-with open(csvpath,encoding="utf-8") as csvfile:
+with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     print(csvreader)
 
@@ -31,7 +31,7 @@ with open(csvpath,encoding="utf-8") as csvfile:
 
         #count number of votes in dataset
         total_votes.append(row[0])
-        
+
         
         #count votes for each candidate
         if row[2] == "Charles Casper Stockham":
@@ -74,8 +74,7 @@ print(f"Winner: {winner}")
 print("-------------------------")
 
 #export results in a text file
-analysis = os.path.join("Analysis", "Election_Analysis.txt")
-with open(analysis,"w") as file:
+with open("Election_Analysis.txt","w") as file:
 
     file.write("Election Results")
     file.write("\n")
@@ -96,5 +95,3 @@ with open(analysis,"w") as file:
     file.write(f"Winner: {winner}")
     file.write("\n")
     file.write("-------------------------")
-
-       
